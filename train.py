@@ -22,8 +22,8 @@ epochs = 200
 global_epoch = 0
 global_step = 0
 
-#classes = 4541
-classes = 12878 #shared
+classes = 131
+#classes = 12878 #shared
 
 trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=10, drop_last=True)
 
@@ -74,8 +74,8 @@ class PointNet_localization(nn.Module):
         x = torch.max(x, 2, keepdim=True)[0]
         x = x.view(-1, 1024)
         
-        x = self.bn4(self.fc1(x))
-        x = self.bn5(self.fc2(x))
+        x = self.fc1(x)
+        x = self.fc2(x)
         
         return x
 

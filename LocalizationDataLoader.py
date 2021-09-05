@@ -35,5 +35,5 @@ class LocalizationDataLoader(Dataset):
         X = X[:(X.shape[0]-len(X)%4)]
         X = X.reshape(len(X)//4, 4)
         X = X[:, :3]
-        X = X[np.random.choice(X.shape[0], 21000, replace=False), :]
+        X = X[np.random.choice(X.shape[0], 1000, replace=False), :]
         return X, label
